@@ -1,58 +1,116 @@
-body {
-    font-family: 'Segoe UI', sans-serif;
-    background: #f2f2f2;
+/* Reset dasar */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
 }
 
+/* Tampilan body */
+body {
+    background-color: #121212;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+}
+
+/* Kontainer utama */
 .container {
-    max-width: 500px;
-    margin: 50px auto;
-    padding: 30px;
-    background-color: white;
+    background-color: #1e1e1e;
+    padding: 25px;
     border-radius: 12px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
     text-align: center;
+    width: 100%;
+    max-width: 500px;
 }
 
+/* Judul aplikasi */
 h2 {
+    font-size: 26px;
     margin-bottom: 20px;
-    color: #333;
+    color: #ffcc00;
 }
 
-form input[type="text"] {
-    padding: 10px;
-    width: 70%;
-    border-radius: 6px;
-    border: 1px solid #ccc;
+/* Form pencarian */
+form {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+input {
+    flex: 1;
+    padding: 12px;
+    border: 2px solid #ffcc00;
+    border-radius: 8px;
     font-size: 16px;
-}
-
-form button {
-    padding: 10px 20px;
-    margin-left: 10px;
-    border: none;
-    background-color: #3498db;
+    background-color: #2e2e2e;
     color: white;
-    font-weight: bold;
-    border-radius: 6px;
+}
+
+button {
+    padding: 12px 20px;
+    background-color: #ffcc00;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
     cursor: pointer;
+    transition: 0.3s;
 }
 
-form button:hover {
-    background-color: #2980b9;
+button:hover {
+    background-color: #ff9900;
 }
 
+/* Tampilan hasil */
 .result {
     margin-top: 25px;
-    background-color: #ecf0f1;
     padding: 20px;
-    border-radius: 10px;
-    color: #2c3e50;
+    background-color: #282828;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+    text-align: left;
 }
 
+.result h3 {
+    font-size: 22px;
+    color: #ffcc00;
+}
+
+.result p {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+/* Gambar game */
+.result img {
+    margin-top: 15px;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+}
+
+/* Pesan error */
 .error {
-    margin-top: 25px;
-    color: red;
+    margin-top: 20px;
+    padding: 12px;
+    background-color: #ff4444;
+    color: white;
+    border-radius: 8px;
     font-weight: bold;
+}
+
+/* Responsif untuk layar kecil */
+@media (max-width: 600px) {
+    .container {
+        padding: 15px;
+    }
+    
+    input, button {
+        font-size: 14px;
+    }
 }
