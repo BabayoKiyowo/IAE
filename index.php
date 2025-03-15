@@ -1,6 +1,5 @@
 <?php
-$gameData = null;
-$error = null;
+header('Content-Type: application/json');
 
 if (isset($_GET['game'])) {
     $game = htmlspecialchars($_GET['game']);
@@ -12,45 +11,26 @@ if (isset($_GET['game'])) {
 
     if (!empty($response['results'])) {
         $gameInfo = $response['results'][0];
-        $gameData = [
+
+        $result = [
             'nama' => $gameInfo['name'],
             'rating' => $gameInfo['rating'],
-            'platforms' => implode(", ", array_map(function($platform) {
+            'platforms' => array_map(function($platform) {
                 return $platform['platform']['name'];
-            }, $gameInfo['platforms'])),
+            }, $gameInfo['platforms']),
             'gambar' => $gameInfo['background_image']
         ];
     } else {
-        $error = "Game tidak ditemukan.";
+        $result = [
+            'status' => 'error',
+            'pesan' => 'Game tidak ditemukan.'
+        ];
     }
+} else {
+    $result = [
+        'status' => 'error',
+        'pesan' => 'Masukkan parameter game terlebih dahulu.'
+    ];
 }
-?>
 
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <title>Aplikasi Info Game</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="container">
-        <h2>Aplikasi Info Game</h2>
-        <form method="GET" action="index.php">
-            <input type="text" name="game" placeholder="Masukkan nama game..." required>
-            <button type="submit">Cari</button>
-        </form>
-
-        <?php if ($gameData): ?>
-            <div class="result">
-                <h3>Game: <?= $gameData['nama'] ?></h3>
-                <p><strong>Rating:</strong> <?= $gameData['rating'] ?></p>
-                <p><strong>Platform:</strong> <?= $gameData['platforms'] ?></p>
-                <img src="<?= $gameData['gambar'] ?>" alt="<?= $gameData['nama'] ?>" width="300">
-            </div>
-        <?php elseif ($error): ?>
-            <div class="error"><?= $error ?></div>
-        <?php endif; ?>
-    </div>
-</body>
-</html>
+echo json_encode($result, JSON_PRETTY_PRINT);

@@ -11,38 +11,41 @@ body {
     background-color: #121212;
     color: #ffffff;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    height: 100vh;
     padding: 20px;
 }
 
-/* Kontainer utama */
-.container {
+/* Navbar */
+.navbar {
     background-color: #1e1e1e;
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
-    text-align: center;
     width: 100%;
-    max-width: 500px;
+    padding: 15px 0;
+    text-align: center;
+    box-shadow: 0 5px 10px rgba(255, 255, 255, 0.1);
 }
 
-/* Judul aplikasi */
-h2 {
-    font-size: 26px;
-    margin-bottom: 20px;
+.navbar h1 {
     color: #ffcc00;
+    font-size: 26px;
+}
+
+/* Container utama */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin-top: 20px;
 }
 
 /* Form pencarian */
-form {
+.search-form {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     gap: 10px;
+    margin-bottom: 20px;
 }
 
-input {
+.search-form input {
     flex: 1;
     padding: 12px;
     border: 2px solid #ffcc00;
@@ -52,7 +55,7 @@ input {
     color: white;
 }
 
-button {
+.search-form button {
     padding: 12px 20px;
     background-color: #ffcc00;
     border: none;
@@ -62,39 +65,53 @@ button {
     transition: 0.3s;
 }
 
-button:hover {
+.search-form button:hover {
     background-color: #ff9900;
 }
 
-/* Tampilan hasil */
-.result {
-    margin-top: 25px;
+/* Daftar game */
+.game-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    justify-content: center;
     padding: 20px;
-    background-color: #282828;
-    border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
-    text-align: left;
 }
 
-.result h3 {
-    font-size: 22px;
+/* Kartu game */
+.game-card {
+    background: #1e1e1e;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 5px 10px rgba(255, 255, 255, 0.1);
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.game-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(255, 255, 255, 0.2);
+}
+
+.game-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.game-card h3 {
+    margin: 10px 0;
+    font-size: 18px;
     color: #ffcc00;
 }
 
-.result p {
-    font-size: 16px;
+.game-card p {
     margin: 5px 0;
+    color: #cccccc;
 }
 
-/* Gambar game */
-.result img {
-    margin-top: 15px;
-    width: 100%;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
-}
-
-/* Pesan error */
+/* Pesan Error */
 .error {
     margin-top: 20px;
     padding: 12px;
@@ -104,13 +121,22 @@ button:hover {
     font-weight: bold;
 }
 
-/* Responsif untuk layar kecil */
+/* Responsif */
 @media (max-width: 600px) {
-    .container {
-        padding: 15px;
+    .search-form {
+        flex-direction:a column;
+        gap: 5px;
     }
-    
-    input, button {
+
+    .search-form input {
         font-size: 14px;
+    }
+
+    .search-form button {
+        font-size: 14px;
+    }
+
+    .game-card img {
+        height: 120px;
     }
 }
