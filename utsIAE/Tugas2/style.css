@@ -1,0 +1,142 @@
+/* Reset dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Tampilan body */
+body {
+    background-color: #121212;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #1e1e1e;
+    width: 100%;
+    padding: 15px 0;
+    text-align: center;
+    box-shadow: 0 5px 10px rgba(255, 255, 255, 0.1);
+}
+
+.navbar h1 {
+    color: #ffcc00;
+    font-size: 26px;
+}
+
+/* Container utama */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin-top: 20px;
+}
+
+/* Form pencarian */
+.search-form {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.search-form input {
+    flex: 1;
+    padding: 12px;
+    border: 2px solid #ffcc00;
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: #2e2e2e;
+    color: white;
+}
+
+.search-form button {
+    padding: 12px 20px;
+    background-color: #ffcc00;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.search-form button:hover {
+    background-color: #ff9900;
+}
+
+/* Daftar game */
+.game-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Kartu game */
+.game-card {
+    background: #1e1e1e;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 5px 10px rgba(255, 255, 255, 0.1);
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.game-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(255, 255, 255, 0.2);
+}
+
+.game-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.game-card h3 {
+    margin: 10px 0;
+    font-size: 18px;
+    color: #ffcc00;
+}
+
+.game-card p {
+    margin: 5px 0;
+    color: #cccccc;
+}
+
+/* Pesan Error */
+.error {
+    margin-top: 20px;
+    padding: 12px;
+    background-color: #ff4444;
+    color: white;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+/* Responsif */
+@media (max-width: 600px) {
+    .search-form {
+        flex-direction:a column;
+        gap: 5px;
+    }
+
+    .search-form input {
+        font-size: 14px;
+    }
+
+    .search-form button {
+        font-size: 14px;
+    }
+
+    .game-card img {
+        height: 120px;
+    }
+}
